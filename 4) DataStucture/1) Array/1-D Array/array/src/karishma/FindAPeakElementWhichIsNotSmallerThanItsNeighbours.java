@@ -62,7 +62,7 @@ public class FindAPeakElementWhichIsNotSmallerThanItsNeighbours {
 		for(int i=0;i<n;i++) {
 			arr[i] = sc.nextInt();
 		}
-//		BruteForce_Approach(arr,n);
+		BruteForce_Approach(arr,n);
 		BinarySearch_WithoutRecursion(arr,n);
 	}
 	
