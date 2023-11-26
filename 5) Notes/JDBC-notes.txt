@@ -1,0 +1,622 @@
+#1---10/10/23---Tue----------------------------------------------------------------------------------------------------------------------------------
+#2---11/10/23---Wed----------------------------------------------------------------------------------------------------------------------------------
+#3---12/10/23---Thu----------------------------------------------------------------------------------------------------------------------------------
+#4---13/10/23---Fri----------------------------------------------------------------------------------------------------------------------------------
+#5---14/10/23---Sat----------------------------------------------------------------------------------------------------------------------------------
+
+#JDBC
+
+- Whenever we write a java program and if that program need to comunicate with datebase then we need help of API which is JDBC API.
+- JDBC API stands as an interface Java program and Database.
+- It is the only one API which helps us to establish connection between Java program and Database.
+- In the mean while it also helps Database to communicate back with Java application of program.
+ 
+#API (Application Programming Interface)
+
+- An API is a set of rules and protocols that defines how different software components should interact with each other.
+- It provides structure and standardised way for different application and modules to communicate and exchange data.
+
+#DATA
+
+- It is an information about an Entity.
+
+#DATA STORAGE SOLUTIONS
+
+- Data storage is a concern which deals with where and how you store information in digital system.
+    1.File Storage
+    2.Database
+
+#DIFF BETWEEN FILE STORAGE & DATA STORAGE
+
+1. File Storage
+	a.It provides less security.
+	b.No efficient query processing OR Difficult for data manipulation and updation.
+	c.Redudant data is present.
+	d.Simple in usability.
+
+2. Database
+	a.Provides better security than file storage.
+	b.Efficient query processing OR Easy data manipulation and updation.
+	c.Redudant data can be avoided.
+	d.Database is complex to use.
+	e.A Database is a place or a medium where a Data is stored in Systematic and Orgnised manner.
+
+#TYPES OF DATABASE
+
+1. Relational Database
+	-Data is stored in form of tables and it follows EF Codd rules.
+
+2. Object Oriented Database
+	-Data is stored in form of object.
+
+3. Distributed Database
+	-Database is distributed along various locations.
+
+4. Data Warehouse
+	-Wel-Known for faster query execution and analysis.
+
+5. NoSQL database
+	-As web applications are growing extensively we are trying to use NoSQL database because it does not have structure amd any time we can add 		 extra fields and change the structure.
+
+6. Cloud database
+	-Cloud storage can help with structured or non structured data in private/public/hybrid cloud.
+
+#WHAT IS JDBC API ?
+
+- It is specification provided by sun micro systems that provides standard abstraction for java application with various databases.
+- Enterprise data stored in relational database can be accessed with the help of JDBC API at respective database servers.
+- The API provides a mechanism for dynamically loading the correct java packages and registering them wih the JDBC driver manager.
+
+#HOW DOES JDBC HELPS ?
+
+- Java not knows about SQL and similarly SQL not have any idea about java applicatuion
+- JDBC API will help to communicate between Java Application and any Database.
+- *DIAGRAM* : JDBC is part of Java which helps to communicate with Database.
+
+#HOW DOES JDBC AND DRIVER SOFTWARE INTERACTS ?
+
+- Diagram : JDBC of Java can communicat with any database which has its own driver which helps Java and Database to communicate.
+- Suppose Java application needs to communicate with Database, Java Application will take help of JDBC API. JDBC API will not convert any statement     into Database understandable language, So we need something which can convert a Database understandable statements into respective Database        understandable language.
+- Driver software will talk with respective Database.
+
+# WHO IS PROVIDING DRIVER SOFTWARE ?
+
+- It is provided by DB Vendor.
+- JDBC is independant Database and Drivers are dependant on Database.
+
+#STEPS TO CONNECT WITH DATABASE AND WAYS TO PERFORM EACH STEPS 
+
+1. Load or register driver... 2 types
+
+	1. Class.forName("org.postgresql.Driver");
+	2. DriverManager.registerDriver(driver)
+
+2. Establish the connection... 3 types
+
+	1. DriverManager.getConnection("url?user=value&pass=value");
+	2. DriverManager.getConnection("url",properties);
+	3. DriverManager.getConnection(url,user,pass);
+
+3. Creation of statement... 3 types
+
+	1. connection.createStatement();
+	2. connection.prepareStatement();
+	3. connection.prepareCall();
+
+4. Execution of statement... 3 types
+
+	1. statement.execute("query");
+	2. statement.executeQuery("query");
+	3. statement.executeUpdate("query");
+	
+
+5. Close connection... 1 type
+
+	1. connection.close();
+
+#6---16/10/23---Mon----------------------------------------------------------------------------------------------------------------------------------
+
+#MAVEN PROJECT
+
+Q>WHY DO WE NEED TO CREATE MAVEN PROJECT WHILE WORKING WITH JDBC ?
+
+- Creating maven project while working with JDBC offers several advantages
+
+	1. Dependancy management
+		- Maven will automatically download and include required dependancies ensuring that project has the necessary libraries at build 		  	  time.
+
+	2. Consistant project structure 
+		- Maven follows standard project structure making it easy to organise and manage code base. It prompts the separation of source code, 		  resource and configuration files allowing it for better code separation, maintanability and collaboration within team.
+
+	3. Easy project setup
+		- Maven provides archetypes templates which are pre defined project templates for different types of applications. There are 		 		  archetypes available specifically for JDBC projects which setup initial project structure, configuration and dependancies.
+		- This makes quick and easy to get started wiht JDBC projects.
+
+	4. Dependancy version management
+	5. Continiuos integration
+	6. Standardise project lifecyle
+
+#MAVEN NAMING CONVENTION
+
+1. Group ID
+
+	- Group ID identifies the group or organization who owns the project. It is typically written in reverse domain name.
+	- For e.g : If organization domain is "Example.com", then Group ID will be "com.Example".
+
+2. Artifact ID
+
+	- Artifact ID represent the specific project within the group. It is the same name of project that will be used to identify it uniquely 	  	  within group.
+	- Typically Artifact ID is simplified lower case version of project name without any spaces or special.
+
+Q> WHAT IS DEPENDANCY ?
+
+	- We need to modify "POM.xml" file by adding dependancies into it. In context wiht maven project a dependancy in the "POM.xml" file refers to 
+	  external library or module that your project relies on. Inside "POM.xml" in dependancy tag, we can define dependancy.
+	- We need to add dependancies depending on database that we are going to establish connection with.
+	- In out case, we using PostgresSQL.
+
+Q> HOW TO ADD DEPENDANCY ?
+
+	- Create mavem project.
+	- Inside it, search for "POM.xml" file.
+	- Add <dependancies></dependancies> tags nested in <project tag>.
+	- Search for "MVN REPOSITORY" in browser and search for current database we're using "e.g: PostgreSQL".
+	- Select Most Used, Latest, With 0 Vulnerability database and copy its tags.
+	- Paste the copied tags inside <dependancies> tags.
+
+#7---17/10/23---Tue----------------------------------------------------------------------------------------------------------------------------------
+
+#PROGRAM TO INSERT DATA USING 5 STEPS :
+
+1. Load OR Register driver
+	
+	> Class.forName("org.postgresql.Driver");
+
+	  - forName() is a public static method. It ask for String argeument as "Driver Path of respective Database"
+	  - This method shows "ClassNotFoundException". To handle it, use Try-Catch method.
+
+2. Establish connection
+
+	> Connection connection = DriverManager.getConnection(url, user, password);
+
+	  - To estabblish connection with database, we have method name "getConnection". It is a overloaded method.
+	  - DriverManager is a helper class which have getConnection is a static method which is overloaded. It ask for three argeuments "url, user, 	   	    password".
+
+	   	>url = "jdbc:postgresql://localhost:5432/database_name"
+		>user = user name of database
+		>password = database password
+
+	  - It gives SQLException. Handle it with Try-Catch method.
+	  - getConnection() returns connection object.
+
+3. Creation of Statement 
+
+	> "Statement statement = connection.createStatement();" 
+
+	  - We can create statement with the help of connection object
+  	  - It returns statement object.
+
+4. Execution of statement. ()
+
+  	  - Execute statement/query.
+		
+#QUERIES TO PERFORM CRUD OPERATION
+
+		1.Create
+			- INSERT INTO TABLE_NAME(COL1_VALUE, COL2_VALUE);
+		2.Read
+			- SELECT * FROM TABLE_NAME;
+		3.Update
+			- UPDATE TABLE_NAME SET COL_NAME WHERE COND;
+		4.Delete
+			- DELETE FROM TABLE_NAME WHERE COND;
+
+5. Close connection. ()
+
+#8---18/10/23---Wed----------------------------------------------------------------------------------------------------------------------------------
+
+#9---19/10/23---Thu----------------------------------------------------------------------------------------------------------------------------------
+
+#PROGRAM TO READ TO RECORD
+
+- To execute select type of queries, we have method name "executeQuery(String SQL)".
+- It returns "Result Set".
+
+Q> WHAT IS ResultSet ?
+
+- Result Set is an interface present in "java.SQL" package.
+
+Q> WHAT DOES ResultSet HOLDS ?
+
+- It holds Data which has been returned from database when we execute "SELECT" Query.
+- We can get Result Set object by calling "executeQuery".
+- Result Set is used to fetch data from database.
+- Result Set acts as a cursor.
+
+Q> WHAT CURSOR WILL DO ?
+
+- The Result Set object maintains a cursor that point to the row of Result Set.
+- The "next()" method is used to move cursor to next position.
+  
+#NOTE : 
+
+	- There are few more methods present in Result Set to fetch data from Result Set.
+        - We have multiple methods to fetch data... e.g : getInt(), getString()
+	- Fow these methods, we use column numbers which we call "Index".
+
+#NOTE : 
+
+	- Index starts from 1 not 0.
+	- These get methods are overloaded methods, they can accept column index as well as column name. 
+
+#10---20/10/23---Fri---------------------------------------------------------------------------------------------------------------------------------
+
+Q> SHOULD WE USE WHIL LOOP EVERY TIME WE FETCH RECORD ?
+
+- Irrespective of number of records, we always use While loop to fetch a record. Because compiler don't have any idea about number of records.
+- While loop is Entry Control loop, So it will check for condition "executeQuery.next()", which returns boolean value.
+
+#VARIOUS METHODS TO EXECUTE "5 STEPS"
+
+1. Load or Register Driver : Execute it by 2 ways
+
+	1> Load Driver -  
+
+	> Class.forName("org.postgresql.Driver");
+
+		- class Class is present in java.lang package.
+		- It is a public static method which takes fully qualified path name of driver class and Load that perticular class into memory.
+		- It throws "ClassNotFoundException". We handle it using Try/Catch Block.
+	
+	2> Register Driver - 	
+
+	> Driver driver = new Driver();
+	> DriverManager.registerDriver(driver);
+
+		- To register a driver, we have a  static void method name "registerDriver()", which takes "driver" object as a formal argeument.
+		- It is present inside class DriverManager.
+		- DriverManager is not specific for any specific database.
+		- DriverManager is a part of JDBC API. because it is not specific for any database as mentioned.
+
+#NOTE : All classes and Interfaces related to JDBC API are present in "java.SQL" package.
+
+		- DriverManager is also present in "java.SQL" package.
+
+Q> WHICH IS THE BEST WAY ?
+		
+		Way 1>
+
+		- Initially in JDBC API provisions to load the Drivers was provided, 
+			> Class.forName("org.postgresql.Driver");
+		- But in above method, we have to remember fully qualified path name of Driver class.
+
+		Way 2>
+
+			>Driver driver = new Driver();
+			>DriverManager.registerDriver(driver);
+
+		- This is more generalised way, as we dont have to recall fully qualified path name of Driver Class.
+
+#NOTE : 
+
+	- To add multiple Database Drivers, we can inject multiple "Deoendancy" of various Databases like oraclSQL, MySQL etc. inside 	            "<Dependancies>" tag.
+	- We can connect our Java program with multiple Databases.
+
+
+2. Establish Connection : Execute it by 2 ways
+
+	1>getConnection() using 3 args-  
+
+	>DriverManager.getConnnection(url, username, password); 
+		
+		- URL(Universal Resource Locator) - Whichever database we are using, for that we have an URL.
+
+			>jdbc:postgresql://localhost:5432/database name
+			>jdbc:mysql://localhost:3300/database name
+
+		- Username - Database UserName
+		- Password - Database Password
+		- getConnection throws "SQLException" related to database, which is checked exception.
+		- It returns "connection" object.
+
+Q>WHAT IS connection ?
+
+		- It is an Interface present in java.SQL package.
+
+#NOTE : 
+
+	There are many Connections available from different packages. Make sure we are importing Connection from java.SQL package
+
+	2> getConnection() by passing single String arg.
+
+		- "url?user=postgres&password=root"
+		- url is a path to database 
+		- After "?" we have to submit username and password in a key and value pair.
+		- All websites use same pattern i.e "url?user=username&password=pass"
+
+	3> getConnection() by passing 'String and Properties'as arg.
+		
+		- Create a file in Maven project by right clicking on a Maven project and name it as "dbconfig.properties".
+		- Create "FileInputStream fileInputStream = new FileInputStream("dbconfig.properties");"
+		- Create Properties properties = new Properties();
+		- properties.load(FIS);		
+
+	> File Input String :
+
+		- It is a class in java which is use to read data from a file.
+		
+	> Properties : 
+
+		- It is a class in java that represents set of propertites often used for configuration settings.
+
+#10---20/10/23---Fri---------------------------------------------------------------------------------------------------------------------------------
+#11---21/10/23---Sat---------------------------------------------------------------------------------------------------------------------------------
+#12---23/10/23---Mon---------------------------------------------------------------------------------------------------------------------------------
+#13---24/10/23---Tue---------------------------------------------------------------------------------------------------------------------------------
+
+#TRANSITION FROM "Statement" to "PreparedStatement :
+
+	1> Performance
+
+		- PreparedStatement objcts are pre compiled on database server. Which means that the SQL statement is passed and optimised once. 
+	        - This can result in improved performance especiually for SQL querries that are executed multiple time with different parameter                         values.      		 
+		- The Database server can reuse the  execution Plan for pre compiled statement, redusing 'overhead'.
+		
+	2> Readability and Maintainability
+
+		- 'PreparedStatement' querries are generally more readable and maintainable than 'concatinated SQL querries'.
+		- SQL code is separated from java code making it easier to understand and modify.
+		- This separation also reduses the risk of introducing syntax error in the SQL.
+		
+#14---25/10/23---Wed---------------------------------------------------------------------------------------------------------------------------------
+
+#CREATE "Statement" USING "PreparedStatement" :
+
+	1. Write Querry along with Delimeters
+
+		> String querry = "INSERT INTO student VALUES(?,?);"
+
+	2. Use above String Querry in PreparedStatement
+
+		> PreparedStatement pstm = connection.prepareStatement(query);
+
+	3. Use 'pstm' object to set or to feed data to be stored using 'set()' methods.
+
+		> pstm.setDataType(index/col_name,value);
+
+	4. Execute pstm
+
+		> pstm.execute();
+	
+Q> WHY DO WE NEED "PreparedStatement" ?
+
+		- To execute Dynamic Querries.
+		- To execute Dynamic Querries, first we need to write Querry along with it's 'Delimeters'.
+		- For every field we will have a Delimeter.
+		- We have multiple set() methods depending on data type.
+		- Execute pstm which holds the key and values.
+
+#15---26/10/23---Thu---------------------------------------------------------------------------------------------------------------------------------	#16---27/10/23---Fri---------------------------------------------------------------------------------------------------------------------------------	
+
+#EXECUTE STATEMENT
+
+	JDBC provides "3" main methods for executing SQL Statements, each servinng a different purpose.
+
+	1> Execute Query using "execute()" :
+
+		- This method is versatile and can be used for any SQL Statement.
+		- It returns "boolean value" that indicates whether "ResultSet" can be fetched or not. 
+		  (it returns "true" if ResultSet object can be fetched. else returns "false" i.e ResultSet cannot be fetched)
+		- execute() can be used for executing "SELECT, INSERT, UPDATE, DELETE" Queries.
+	
+#getResultSet() : 
+
+		- It is used to retrieve resultSet object that contains the data retrieved from SQL "SELECT" Query. 
+		- It is typically called after executing SQL query using excute() on statement object.
+		- This method can throw SQLException if there's any issue with the database connection or if there's no ResultSet associated with 		 	  statement.
+
+	2> Execute Query using "executeUpdate()" :
+		
+		- This method is used specifically for SQL Statement that modify the data in database, such as "INSERT, UPDATE, DELETE" Statements.
+		- It is not meant for executing SQL SELECT Queries, which retrieves data from database.	
+		- It returns "int" representing the number of rows affected by statement.
+
+#NOTE : 
+
+	- If we try to use "executeUpdate()" on SELECT Query, it throws SQLException with an error message indicating that "This method not 			  appropriate for SELECT Query"
+	- This is because returns "int" i.e number of rows affected by statement, which does not meant any sense for SELECT type Queries as it does 	  not modify data.
+
+
+	#Method Name	1. execute(String sql)	2. ExecuteUpadate(String sql)	3. executeQuery(String sql)
+	#Return type	boolean			int				Result Set
+	
+	Create		1			1				0
+	Read		1			0				1
+	Update		1			1				0
+	Delete		1			1				0
+
+Q> HOW DOES ResultSet WORKS ?
+
+	- Suppose we have created a table, in which we have multiple records and we want to fetch these records.
+	- For this, we need to use SELECT query. We will use executeQuery() which returns ResultSet.
+	- ResultSet is holding data returned from database. It also acts as a cursor.
+	- Initially the cursor won't be pointing towards records. 
+	- Now we want to fetch record so we need use 'next()'.
+	- Now cursor points towards the record. 
+	- next() will not throw any exception. when we try to fetch data using any of 'get method'.
+	- To fetch a value from a record, we need to use corresponding 'get method'. 
+		
+		For eg : int/String  getInt/getString (int column index / String column label) throws SQLException.
+
+	- Returns the column value, if value is SQL null, the value returned is null.
+	- Throws : If the column index not valid, if database access error occurs, it throws SQLException.
+
+#BATCH EXECUTION :
+
+	*Diagram* : A Java program can execute batch of Queries at once known "Bucket", which communicates with Database and Database communicate 		    	    back with Java program with Results.
+
+	- Batch execution in JDBC is a valuable topic, as it can significantly improves the efficieancy of database operations by redusing number of 		  round trips from Java Application to Datadase.
+	- Batch Execution allows multiple SQL Statements to be sent to Database in a single batch, which can result in improved perfomance for 	 	 	  operation that involved multiple INSERTS, UPDATES or DELETES.
+	- Batch Execution not used for SELECT statements
+
+#17---28/10/23---Sat---------------------------------------------------------------------------------------------------------------------------------	
+#18---30/10/23---Mon---------------------------------------------------------------------------------------------------------------------------------	
+
+#BENIFITS OF BATCH EXECUTION :
+
+1. Atomicity : 
+
+	       - The entire batch is executed as a single unit.
+	       - If one statement fails, the entire batch is rolled back, ensuring data consistency.
+
+2. Reduced Nerwork Overhead :
+
+	       - Batch execition reduces network traffic, which is significant for performance.
+	       - PostgreSQL does not supports executing multiple statements within a batch, when they produce varying multiple count.
+	       
+	       - E.g : statement.addBatch("Query 1","Query 2");
+		       statement.addBatch("Query 3");
+
+	       - Above throws "BatchUpdateException". (Too many update results were returned) 
+	       - i.e int[]executeBatch = statement.executeBatch();
+
+#REAL LIFE APPLICATION OF BATCH EXECUTION : 
+
+1. Bulk data loading :
+
+- When you need to insert large number of data into database, batch execution is ideal solution.
+- You might have to import too many .csv (Comma Seperated Value) file into database.
+
+2. Data updates :
+
+- When you need to update large number of data into database based on certian conditions, batch execution can minimize the round trips to database.
+
+#METHOD 5 : CLOSE CONNECTION :
+
+- Closing a database connection is essential part of good database management in application that interacts with database.
+- Failing to close the databbase can lead to issues such as resource leaks, increased resource usage & potential performance degradation.
+
+#IMPORTANCE OF CLOSING DATABASE CONNECTION :
+
+1. Resource management 
+
+- Open database connections consumes system resources, not closing them can lead to issues like reaching the limit on the maximum number of allowed 
+  open connections.
+
+2. Connnection pooling : (reusing connections than opening & closing them frequently)
+
+- In scenarios where connection pooling is used, not closing a connection can lrad to resource exhaustion in the connection pool.
+- The "connection.Close()" is called within the finally bock to ensure that the connection is closed irrespective of Exception occured before closing 
+  the connection during database operations.
+- Its wrapped within try - catch block to handle any potential SQLException that might occur during closing the connection.
+- Its crusial to check whether connection is null or not before attempting to close it.
+- As null check prevents "NullPointerException".  
+
+#19---31/10/23---Tue---------------------------------------------------------------------------------------------------------------------------------	
+
+#STORED PROCEDURE :
+
+- A stored procedure is a collextion of pre-compiled SQL statements stored within the database.
+- It is a named and saved set of queries or procedural statements that can be called and executed by various applications or users, wihtout need of 
+  rewrite and recomplie the code.
+
+#HOW TO CREATE/CALL A STORE PROCEDURE ?
+
+- pgAdmin > Servers > PostgreSQL 14 > Databases > (Select database) > Schemas > Public > Procedures (right click) > Create procedure
+  > [ General - Provide procedure name ] [ Definition - Language : plpgsql ] 
+- Code : 
+		BEGIN
+		//SQL Query
+		END;
+
+- To call stored procedure :
+		- Right click on table and type query :
+			
+			CALL Procedure_Name (value 1, value 2);
+		- Execute
+
+
+#ADVANTAGES OF STORED PROCEDURE :
+
+1. Code reusability : Stpred procedures can be called multiple times from various applications.
+
+2. Performance : Pre-compiled code enhances execution time.
+
+#USE CASES : 
+
+- Complex CRUD operations on multiple table in a database.
+
+#PROCEDUR CREATING PRACTICES :
+
+1. Proper Naming : 
+
+- Use meaningful naming for procedures which follows proper naming conventions.
+
+2. Documention :
+
+- Comment and document procedures for future usage.
+
+#HOW TO CALL AND STORE STORED PROCEDURE IN JAVA APPLICATION ? ( 16-call-stored-procedure )
+
+> CallableStatement :
+
+- A CallableStatement in java is an interface in JDBC API used to execute stored procedures pr function in a database.
+- It extends PrepareStatement interface.
+
+#ADVANTAGES : 
+
+- Parameters : It allows input, output and input/output parametrs. 
+	       Stored procedures can accept input parameters and returns output parameters.
+
+#HIERARCHY :
+
+- Hierarchy of Statement - PreparedStatement - CallableStatement, these are interfaces used for database operations
+- But they differ in terms of functionalities and their positions in hierarchy.
+
+#Statement Interface :
+
+- It is the base interface in the hierarchy.
+- It is used to execute simple SQL statements.
+- Generally used for static SQL queries without parameters.
+- It has methods like execute(), executeQuery(), executeUpdate().
+
+#PreparedStatement Interface :
+
+- It extends Statement Interface.
+- It is more specialized interface used for pre-complied SQL statements.
+- It allows you to execute dynamic SQL queries that can be set before execution.
+
+#CallableStatement Interface :
+
+- It extends to PreparedStatement Interface.
+- It is further specialized in execution of Stored Procedures in database.
+- It enable handling input, output and input/output parameters.  
+
+#20---1/11/23---Wed----------------------------------------------------------------------------------------------------------------------------------	
+
+# <ABSENT>
+
+#21---2/11/23---Thu----------------------------------------------------------------------------------------------------------------------------------	
+
+#PRESENTATION
+
+#22---3/11/23---Fri----------------------------------------------------------------------------------------------------------------------------------	
+
+#Program to Fetch data from student table ( 17-call-stored-procedure-select-query )
+
+-While creating the Procedure inside the code, make table side variable different from I/O variable, else it will give "Ambiguity Error".  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
