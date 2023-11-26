@@ -1,0 +1,316 @@
+Hibernate:
+
+we will learn hibernate with JPA 
+
+what is hibernate?
+>Hibernate is a framework
+
+Why hibernate was built?
+>It was built as an alternative of JDBC.
+In JDBC we use to write lots of code, when it comes to hibernate, it tried to reduce all the boiler-plate code.
+
+What is boiler-plate code?
+>Boiler-plate code refers to section of code that have to be include in many places with little or no alteration or change.
+>It serves as a kind of template or standard structure that need to be repeated in various parts of code.
+
+We call hibernate as ORM framwork.ORM stand for 'Object Relational Mapping'
+In hybernate basis CRUD operations will be perform in form of objects.
+
+Why hibernate?
+1.Open Source:Open source refers to a type of software license and development model that allows the source code of software program to be freely available and accessible to public.This means that anyone can use, view,modify and distribute the source code.The concept is rooted in the principle of collaboration, transparency, and community driven development.
+2.Hibernate helps in mapping: (Mapping): 1.Datatypes of java to Datatypes of Database . 2.Class to table.
+3.Hibernate helps to write simplified code: In hibernate we hava lot of inbuild interfaces, classes, methods, which are going to help us in CRUD operation.
+we need not to write any code explicitly for creating connection, creating statement, load driver and so on.
+Hibernate have inbuild mechanism to perform most of operations that we need to take care of whenever we are performing CRUD operation in database from java program.
+4.Performance: In hibernate we have mechanism of caching 1. 1-level cache 2. 2-level cache.
+cache memory will be holding some data which is required for operation.
+5.Exception Handling: Hybernate framework itself handles all checked exceptions but runtime exception exceptions will be thrown.
+
+HQL (Hibernate Query Language):
+
+There might not be inbuilt methods for all kind of operations, using hql we can perform any kind of operations .
+Using hql we can write our own query in hybernate.
+There queries are not specific to any one database, when it come to hql these queries are database independent queries  
+
+JPQL (Java Persistance Query Language):
+
+HQL is older version where as jpql is new version 
+
+How does hibernate interact with database?
+Java : Suppose we have java application and it needs to interact with database      Java<---->Hibernate<------>Database.
+       Earlier we understood java interacts with JDBC and JDBC interacts with 
+       driver software and driver software interact database.
+       This time around we will write java code which interacts with hybernate then hibernate interacts with database.
+       In JDBC we understood that JDBC is only API which can help established communication between java application and database.
+       Now, we are dealing with hibernate which is build upon JDBC (Hibernate internally uses JDBC).
+                           hibernate
+       Java Application<---->JDBC<------->Driver<------>Database.
+
+Fundatamentals to create Hibernate Maven Project: 
+
+       
+                                    Hibernate maven project
+-----------------------------------------------------------------------------------------------------------------------------
+
+ 
+      persistance.xml                                                                 pom.xml
+  ----------------------------------                                     ----------------------------------
+      1.URL                                                                           1. Hibernate
+      2.User                                                                          2. Database
+      3.Password
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+we have to write java program using hibernate 
+> Hibernate is not present in JDK so we need to add hibernate dependencies to java project .
+> In pom.xml we will add dependencies like 1>hibernate core 2> Respective database driver
+> In future if we need to interact with different database then we can change the respective database driver or we can have multiple database drivers.
+
+persistance.xml (configuration file)
+>It will contain url,user,password of database hibernate will be fetching iformation regarding database from persistance.xml
+
+where to keep persistance.xml?
+>  Maven Project
+     src/main/resources
+       META-INF
+         persistance.xml
+
+**Project setup to create hibernate maven project
+> package explored-(ctrn+n) - maven project - create simple project - next - fill group id - fill artifact id - finish 
+ [Now project has been created but we need to add dependencies inside 'pom.xml']
+ open 'pom.xml' - create child tag <dependencies> - go to maven repository - search for hibernate-core - select hibernate core relocation - copy dependency,
+ add driver dependancy too.
+
+**Project setup adding persistance.xml to hibernate maven project
+
+Rules to follow while creating entity class:
+1.If you want to make class as an entity class that class must be public non-abstract class
+  eg: public class SuperModel{ }
+2.Entity class must need to have primary key 
+  eg:@Entity 
+     public class SuperModel{
+        @ Id
+        int id;
+       }
+   Entity class needs to be anoted with @Entity anotation
+The variable to which you want to make as a primary key, before that variable we need to use @Id anotation .
+3.Entity class needs to have a public non-parameterized constructor or a public default constructor 
+[If access modifier of a class is public obviously access modifier of a constructor will be public]
+eg : SuperModel(){ }
+4.All the variable of entity class must need to be private, and should have getters and setters 
+   eg:@Entity 
+     public class SuperModel{
+               @ Id
+        private int id;
+        //getter and setter
+        SuperModel(){ 
+         
+         }
+        
+       }
+5. [Not Mandatory]
+  It is recommended for entity class to implement Serializable interface 
+ Note: whenever we are using anotations like @Entity,@Id we need to import them from javax.persistance
+
+Q. Why do we have to follow this rules:
+>The rules are guideline and connection imposed by hibernate and JPA(Java Persistance API) to insure that entity class are well form and can be properly manage by framework.
+
+Rule 1 reason: Hibernate needs to instanciate and manage instances of entity classes making class public and non-abstract ensure hibernate create 
+               instance   of class.
+Rule 2 reason: Every entity in relational database must have primary key that uniquely defines each record. This key is used for efficient retrieval and 
+               updates.By enforcing a single primary key hibernate can manage entites consistently. It also help in building relationship between two or  
+               more than two tables. 
+               mapping :1 .Unidirectional  2. Bidirectional
+Rule 3 reason: Hibernate needs to create instances of entity classes. Having a public zero parameterized constructor allows hibernate to make entities
+               without need of specific details.
+Rule 4 reason: In java private field are usually accessed by using getter and setter method. Hibernate need to interact with attributes of entity and having 
+               public getter and setter method allows hibernate to do this effectively 
+Rule 5 reason: Implementing the serializable interface indicates that instances of class can be serialized (converted to byte stream) and send across a 
+               network.
+
+Pre-requisites to perform CRUD operations 
+
+create EntityManagerFactory object 
+>It is an interface present in javax.persistence package
+then we have to create object for EntityManager
+>EntityManager is an interface present in javax.persistence package.
+with help of EntityManager we have to create object of EntityTransaction
+
+How to create?
+>EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persitence_unit_name").
+>EntityManager entityManager = entityManagerFactory.createEntityManager().
+>EntityTransaction entityTransaction = entityManager.getTransaction();
+
+What is EntityManagerFactory?
+>It is an interface present in javax.persistence package
+
+What exactly EntityManagerFactory does?
+> 1.Load                                    EMF         persistant unit
+  2.Establish Connection                            -------------------
+                                                        dbconfig
+All database configuration will be present in persistence.xml
+ * Persistance
+ >Persistance is a helper class present in javax.persistence package, from this we will be using method  createEntityManagerFactory("persistance_unit_name").It is a public static method which return EntityManagerFactory
+ >It you have multiple databases then you have to create multiple EntityManagerFactory.
+ >It is constructed for specific database and helps in estabilishing connection with database
+ >EntityManagerFactory is also used to instanciate or to get object of EntityManager
+
+EMF--->EM  [CRUD]
+
+What is EntityManager?
+>We are going to create EntityManager object with the help of EntityManagerFactory
+>EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("persitence_unit_name").
+>EntityManager entityManager = entityManagerFactory.createEntityManager().
+>With help of EntityManager we can perform CRUD operations.
+>In EntityManager we have methods like persist() to create , merge() to update , find() to read ,remove() to delete.
+
+What is EntityTransaction?
+>It is an interface present in javax.persistence package.
+>With help of EntityManager we are going to create object for EntityTransaction.
+> EMF
+    EM
+     ET
+>EntityTransaction entityTransaction = entityManager.getTransaction()
+>EntityTransaction is use to club multiple operations.
+
+eT.begin()
+ insert ...
+ update ...
+ delete ...
+eT.commit();
+>Now onwards we will call all the statements as transaction
+
+*persist
+
+void persist(object entity)
+parameters:
+entity - entity instance 
+Throws:
+EntityExistsException - if the entity already axists. (If the entity already exists, the EntityExistsException or another PersistenceException may be thrown at flush or commit time.)
+IllegalArgumentException - if the instance is not an extity
+TransactionRequiredException [ if there is no transaction when invoked on a container-managed entity manager of that is of type PersistenceContextType.TRANSACTION
+
+*find
+
+<T> T find(Class<T> entityClass,
+           Object primaryKey)
+Find by primary key. Search for an entity of the specified class and primary key. If the entity instance is contained in the persistence context, it is returned from there.
+Parameters:
+entityClass - entity class
+primaryKey - primary key
+Returns:
+the found entity instance or null if the entity does not exist
+Throws:
+IllegalArgumentException - if the first argument does not denote an entity type or the second argument is is not a valid type for that entity's primary key or is null
+
+*merge
+
+<T> T merge(T entity)
+Merge the state of the given entity into the current persistence context.
+Parameters:
+entity - entity instance
+Returns:
+the managed instance that the state was merged to
+Throws:
+IllegalArgumentException - if instance is not an entity or is a removed entity
+TransactionRequiredException - if there is no transaction when invoked on a container-managed entity manager of that is of type PersistenceContextType.TRANSACTION
+
+*remove
+
+void remove(Object entity)
+Remove the entity instance.
+Parameters:
+entity - entity instance
+Throws:
+IllegalArgumentException - if the instance is not an entity or is a detached entity
+TransactionRequiredException - if invoked on a container-managed entity manager of type PersistenceContextType.TRANSACTION and there is no transaction
+
+Hibernate Mapping:
+
+We are going to built relationship 
+
+Q) What is relationship?
+> Connection between two or more than two tables 
+
+Q) Why do we need to build relationship?
+> 
+
+     we have two table 
+
+1. student                     2. rating
+    id  name contact               id  java  sql  webtech  overall 
+     1   a    123                   1   *     *     *        *
+     2   b    456                   2   1     1     1        1
+     3   c    789                   3   2     2     2        2
+
+
+suppose we have student table and rating table, which rating belongs to which tabel that is the confusion that we will be having. Without building relationship between these two tables we won't be able to tell that.
+
+Q) To built relationship what are we going to do in hibernate?
+> Mapping (mapping is the key feature of hibernate) by using mapping we can establish relationship between two or more than two tables.
+In RDBMS we use to maintain the relationship between table by making use of primary key(primary key of one table will be foreign key of other table)
+
+
+1. student                 FK               2. rating
+    id  name contact  rating_id             id  java  sql  webtech  overall 
+     1   a    123        1                  1   *     *     *        *
+     2   b    456        2                  2   1     1     1        1
+     3   c    789        3                  3   2     2     2        2
+
+Unidirectional mapping
+
+
+
+1. student               Fk                 2. rating                        FK
+    id  name contact  rating_id             id  java  sql  webtech  overall student_id
+     1   a    123        1                  1   *     *     *        *         1
+     2   b    456        2                  2   1     1     1        1         2
+     3   c    789        3                  3   2     2     2        2         3
+
+Bidirectional mapping
+
+
+
+1. student                     2. rating                             FK
+    id  name contact               id  java  sql  webtech  overall student_id
+     1   a    123                   1   *     *     *        *        1
+     2   b    456                   2   1     1     1        1        2
+     3   c    789                   3   2     2     2        2        3
+
+Unidirectional Mapping
+
+
+We will make use of composition and try to built relationship in hibernate i.e Has-A relationship 
+eg
+college has a students
+car has a engine
+
+using hibernate we can have unidirectional and bidirectional mapping .
+we have futher classification in relationship as 
+1) one to one
+eg car has a engine  
+   person has a pancard
+   One person has one passport, a passport is associated with a single person.
+   Leopards have unique spots, a pattern of spots is associated with a single leopard.
+   We have one college ID, a college ID is uniquely associated with a person.
+
+2) one to many
+eg person has a social media account , those social media account belongs to one person.
+   One author can write many books.
+   One department can have multiple employees.
+   One customer can place multiple orders.
+   One university can offer many courses.
+
+3) many to one
+eg multiple computers has a one server.
+   Many books can be written by a single author.
+   Many employees can belong to a single department.
+   Many orders can be placed by a single customer.
+   Many courses can be offered by a single university.
+
+4) many to many 
+eg multiple students can have multiple subjects .
+   Many students can enroll in multiple courses, and a single course can have multiple students.
+   Many actors can star in multiple movies, and a single movie can have multiple actors.
+   Many authors can write multiple books, and a single book can have multiple authors.
+   Many employees can work on multiple projects, and a single project can have multiple employees.
