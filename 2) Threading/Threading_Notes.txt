@@ -1,0 +1,44 @@
+
+In Java, threading is a mechanism by which multiple threads run concurrently within a program. Threads are lightweight processes that share the same resources but run independently. They allow you to perform multiple tasks simultaneously, which can be especially useful for improving the performance of your applications.
+
+Here's a basic overview of how threading works in Java:
+
+Thread Class and Runnable Interface:
+
+In Java, you can create a thread by extending the Thread class or implementing the Runnable interface.
+Extending the Thread class involves overriding the run method.
+Implementing the Runnable interface requires implementing the run method as well.
+Example using the Thread class:
+
+class MyThread extends Thread {
+    public void run() {
+        
+    }
+}
+
+// Create and start the thread
+MyThread myThread = new MyThread();
+myThread.start();
+
+
+Example using the Runnable Interface:
+class MyRunnable implements Runnable {
+    public void run() {
+  
+    }
+}
+
+// Create a thread and start it
+Thread myThread = new Thread(new MyRunnable());
+myThread.start();
+
+
+2)Thread Lifecycle:
+
+A thread goes through various states during its lifecycle, including:
+New: When a thread is created.
+Runnable: When the thread is ready to run but not yet scheduled by the thread scheduler.
+Blocked: When the thread is waiting for a monitor lock to enter a synchronized block/method or waiting for I/O.
+Waiting: When a thread is waiting indefinitely for another thread to perform a particular action.
+Timed Waiting: Similar to waiting, but with a specified maximum time.
+Terminated: When the thread has exited.
