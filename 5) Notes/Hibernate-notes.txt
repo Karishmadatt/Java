@@ -314,3 +314,10 @@ eg multiple students can have multiple subjects .
    Many actors can star in multiple movies, and a single movie can have multiple actors.
    Many authors can write multiple books, and a single book can have multiple authors.
    Many employees can work on multiple projects, and a single project can have multiple employees.
+
+pubic static void main()
+public: Access Modifier
+static: Non Access Modifier
+
+Access Modifier defines accessibility of members.
+Non Access Modifier it defines characteristic of member.

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Work\Java\3) Advance Java\Hibernate\03-Car-Engine-OTO-Unidirectional\src\main\java\com\jsp\oto\view\view.java"/>
 			<item value="C:\Users\Gaurav\eclipse-workspace\Hibernate\03-Car-Engine-OTO-Unidirectional\src\main\java"/>
 			<item value="C:\Users\Gaurav\eclipse-workspace\Hibernate\02-Basic-CRUD-Operation\src\main\java\com\jsp\CRUD\Driver\delete.java"/>
 			<item value="C:\Users\Gaurav\eclipse-workspace\Hibernate\01-first-hibernate-project"/>
@@ -46,10 +47,12 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.jsp"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="04-Bank-Accounts-OTM-Unidirectional"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

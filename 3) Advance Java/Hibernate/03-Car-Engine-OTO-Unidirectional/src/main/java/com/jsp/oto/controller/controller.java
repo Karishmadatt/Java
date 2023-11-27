@@ -28,5 +28,26 @@ public class controller {
 	  return false;
 	  
    }
+   public car find(int id) {
+	   car find = createEntityManager.find(car.class, id);
+	   return find;
+   }
+   public void remove(car c) {
+	  entityTransaction.begin();
+	  createEntityManager.remove(c);
+	  createEntityManager.remove(c.getEng());
+	  entityTransaction.commit();
+   }
+   public boolean update(int id,double cost) {
+	   car c = find(id);
+	   if(c!=null){
+		   c.setCost(cost);
+		   entityTransaction.begin();
+		   createEntityManager.merge(c);
+		   entityTransaction.commit();
+		   return true;
+	   }
+	   return false;
+   }
 
 }

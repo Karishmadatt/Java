@@ -53,7 +53,7 @@
 	-Database is distributed along various locations.
 
 4. Data Warehouse
-	-Wel-Known for faster query execution and analysis.
+	-Well-Known for faster query execution and analysis.
 
 5. NoSQL database
 	-As web applications are growing extensively we are trying to use NoSQL database because it does not have structure amd any time we can add 		 extra fields and change the structure.
