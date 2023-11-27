@@ -38,7 +38,7 @@ public class controller {
 	  createEntityManager.remove(c.getEng());
 	  entityTransaction.commit();
    }
-   public boolean update(int id,double cost) {
+   public boolean updatecost(int id,double cost) {
 	   car c = find(id);
 	   if(c!=null){
 		   c.setCost(cost);
@@ -49,5 +49,40 @@ public class controller {
 	   }
 	   return false;
    }
+   public boolean updatename(int id, String name) {
+	   car c = find(id);
+	   if(c!=null){
+		   c.setCar_name(name);
+		   entityTransaction.begin();
+		   createEntityManager.merge(c);
+		   entityTransaction.commit();
+		   return true;
+	   }
+	   return false;
+   }
+   public boolean updatechassis(int id, String s) {
+	   car c = find(id);
+	   if(c!=null){
+		   c.setChassis(s);;
+		   entityTransaction.begin();
+		   createEntityManager.merge(c);
+		   entityTransaction.commit();
+		   return true;
+	   }
+	   return false;
+   }
+   public boolean updatecc(int id, double cc) {
+	   car c = find(id);
+	   if(c!=null){
+		   e.setCc(cc);
+		   entityTransaction.begin();
+		   createEntityManager.merge(e);
+		   entityTransaction.commit();
+		   return true;
+	   }
+	   return false;
+   }
+
+
 
 }
