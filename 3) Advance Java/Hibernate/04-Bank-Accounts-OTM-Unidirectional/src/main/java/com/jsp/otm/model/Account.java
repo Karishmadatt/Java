@@ -6,10 +6,11 @@ import javax.persistence.Id;
 @Entity
 public class Account {
   @Id
- int id;
- long contact;
- double balance;
- long account_number;
+ private int id;
+ private String name;
+ private long contact;
+ private double balance;
+ private long account_number;
 public Account() {
 	
 }
@@ -18,6 +19,12 @@ public int getId() {
 }
 public void setId(int id) {
 	this.id = id;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
 }
 public long getContact() {
 	return contact;
@@ -28,8 +35,8 @@ public void setContact(long contact) {
 public double getBalance() {
 	return balance;
 }
-public void setBalance(double balace) {
-	this.balance = balace;
+public void setBalance(double balance) {
+	this.balance = balance;
 }
 public long getAccount_number() {
 	return account_number;

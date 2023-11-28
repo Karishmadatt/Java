@@ -8,7 +8,7 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/03-OTO-Unidirectional?createDatabaseIfNotExist=true)" /> <!-- DB Name -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/04-OTM-Unidirectional?createDatabaseIfNotExist=true)" /> <!-- DB Name -->
             <property name="javax.persistence.jdbc.user" value="postgres" /> <!-- DB User -->
             <property name="javax.persistence.jdbc.password" value="58413Ka@123" /> <!-- DB Password -->
 
