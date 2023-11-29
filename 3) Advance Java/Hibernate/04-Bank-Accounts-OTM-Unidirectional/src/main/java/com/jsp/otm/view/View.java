@@ -113,6 +113,16 @@ public class View {
 				break;
 
 			case 4:
+			    System.out.println("Enter the Bank ID: ");
+			    int id1 = myInput.nextInt();
+				Bank findBank1 = controller.findBank(id1);
+				if(findBank1!=null) {
+					System.out.println("Enter the Account ID: ");
+					int acc_id = myInput.nextInt();
+					Account findAccount=findAccount(acc_id);
+
+				}
+				
 	
 				break;
 
@@ -123,5 +133,6 @@ public class View {
 		} while (flag);	
 			
 		}
+	
 	}
 
