@@ -321,3 +321,35 @@ static: Non Access Modifier
 
 Access Modifier defines accessibility of members.
 Non Access Modifier it defines characteristic of member.
+
+Many to one [Many review to one product]
+
+@Entity
+public class Review {
+@Id
+private int id;
+private String heading;
+private String comment;
+
+@ManyToOne
+private Product product;
+
+
+@Entity
+public class Product {
+@Id
+private int id;
+private String name;
+private int cost;
+public Product() {
+	
+}
+
+key take away in one to many vs many to one :
+
+1.One to many
+the "one" side can directly access its associated "many" side entities.
+It is more flexible for updates .Number of table will be 3.
+
+2.Many to one
+The "many" side doesn't have direct access to "one" side so it is less flexible. Number of tables will be 2.
