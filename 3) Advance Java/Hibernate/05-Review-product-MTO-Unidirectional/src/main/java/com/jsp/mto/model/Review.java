@@ -1,5 +1,7 @@
 package com.jsp.mto.model;
 
+import java.io.BufferedReader;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
