@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.jsp.otm.model.Account;
 import com.jsp.otm.model.Bank;
@@ -88,19 +89,22 @@ public class Controller {
 		}
 		return false;
 	}
-	public boolean removeAcc(int id,Bank bk) {
+	public boolean removeAcc(int id,Bank bk,int bank_id) {
 		if(findAccount(id)!=null) {
 			List<Account> accounts = bk.getAccounts();
 			System.out.println(accounts);
 			entityTransaction.begin();
+			Account accountToRemove = null;
 			for (Account acc : accounts) {
 				if(acc.getId()==id) {
-					entityManager.remove(acc);
-					entityTransaction.commit();
-					return true;
+					accountToRemove=acc;
+					break;
 				}
 			}
-			
+			accounts.remove(accountToRemove);
+			entityManager.remove(acc);
+			entityTransaction.commit();
+			return true;
 		}
 		return false;
 

@@ -158,6 +158,7 @@ public class View {
 				break;
 
 			case 4:
+				Account acc_obj = new Account();
 			    System.out.println("Enter the Bank ID: ");
 			    int id1 = myInput.nextInt();
 				Bank findBank1 = controller.findBank(id1);
@@ -166,8 +167,8 @@ public class View {
 					int acc_id = myInput.nextInt();
 				    Account acc= controller.findAccount(acc_id);
 				    if(acc!=null) {
-				     controller.removeAcc(acc_id,findBank1);
-				    	System.out.println("Account delete Successfully");
+				     controller.removeAcc(acc_id,findBank1,id1);
+				    	System.out.println("Account deleted Successfully");
 				    }else {
 				    	System.out.println("Account not deleted");
 				    }
