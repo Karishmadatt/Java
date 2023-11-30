@@ -14,7 +14,7 @@ private String name;
 private String headquaters;
 private long bacontact;
 @OneToMany
-List<Account> accounts;
+List<Account> accounts; 
 public Bank(){
 	
 }

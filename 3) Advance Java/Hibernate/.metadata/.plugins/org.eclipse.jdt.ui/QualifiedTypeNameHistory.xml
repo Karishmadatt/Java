@@ -11,9 +11,6 @@
     <fullyQualifiedTypeName name="com.jsp.oto.model.car"/>
     <fullyQualifiedTypeName name="com.jsp.oto.model.engine"/>
     <fullyQualifiedTypeName name="com.jsp.oto.controller.controller"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
-    <fullyQualifiedTypeName name="javax.persistence.Id"/>
-    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
@@ -23,6 +20,14 @@
     <fullyQualifiedTypeName name="com.jsp.otm.controller.Controller"/>
     <fullyQualifiedTypeName name="com.jsp.otm.model.Bank"/>
     <fullyQualifiedTypeName name="com.jsp.otm.model.Account"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.management.Query"/>
+    <fullyQualifiedTypeName name="org.hibernate.Query"/>
+    <fullyQualifiedTypeName name="javax.persistence.Query"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

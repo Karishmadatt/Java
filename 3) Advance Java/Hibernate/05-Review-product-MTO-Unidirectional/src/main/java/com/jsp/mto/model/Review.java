@@ -2,6 +2,7 @@ package com.jsp.mto.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -9,6 +10,9 @@ public class Review {
 private int id;
 private String heading;
 private String comment;
+
+@ManyToOne
+private Product product;
 public Review() {
 	
 }

@@ -15,6 +15,7 @@ public class View {
 //		System.out.println("===========Welcome To ABC Bank Management System============");
 		boolean flag=true;
 		do {
+			List<Account> accounts=new ArrayList<Account>();
 			System.out.println("1.Insert\n2.Read\n3.Update\n4.Delete\n0.Exit");
 			System.out.print("Enter your choice:");
 			byte userChoice=myInput.nextByte();
@@ -39,12 +40,12 @@ public class View {
 				sbi.setName(bank_name);
 				sbi.setBacontact(bank_contact);
 				sbi.setHeadquaters(bank_location);
-				Account account1=new Account();
-				ArrayList<Account> accounts=new ArrayList<Account>();
 				System.out.println("How Many Accounts you want to insert:");
 				int insert_account=myInput.nextInt();
 				myInput.nextLine();
-				while (insert_account>0) {
+				while (insert_account!=0) {
+					Account account1=new Account();
+					
 					System.out.println("Enter Account ID:");
 					int account_id=myInput.nextInt();
 					myInput.nextLine();
@@ -66,6 +67,7 @@ public class View {
 					account1.setBalance(account_balance);
 					
 					accounts.add(account1);
+					System.out.println(accounts);
 					sbi.setAccounts(accounts);
 					if (controller.addBankandAccounts(sbi, accounts)) {
 						System.out.println("Data Inserted");
@@ -109,6 +111,49 @@ public class View {
 				break;
 
 			case 3:
+				System.out.println("Enter the Bank Id: ");
+				int id2=myInput.nextInt();
+				System.out.println("Enter the Account id: ");
+				int acc_id1=myInput.nextInt();
+				System.out.println("What you want to update?");
+				System.out.println("1.Account Holder Name\n2.Contact Number\n3.Balance\n");
+				int ch = myInput.nextInt();
+				switch (ch) {
+				case 1:
+					System.out.println("Enter the name: ");
+					String name = myInput.next();
+					if(controller.findAccount(acc_id1)!=null) {
+						controller.updateAccName(acc_id1, name);
+							System.out.println("Name is updated Successfully");
+					}else {
+						System.out.println("Account Id is Invalid");
+					}
+					break;
+				case 2:
+					System.out.println("Enter the Contact Number: ");
+					long no=myInput.nextLong();
+					if(controller.findAccount(acc_id1)!=null) {
+						controller.updateAccContactNo(acc_id1, no);
+							System.out.println("Contact No is updated Successfully");
+						
+					}else {
+						System.out.println("Account Id is Invalid");
+					}
+					break;
+				case 3:
+					System.out.println("Enter the Balance : ");
+					double bal = myInput.nextDouble();
+					if(controller.findAccount(acc_id1)!=null) {
+						controller.updateAccBalance(acc_id1, bal);
+							System.out.println("Balance is updated successfully");
+						
+					}else {
+						System.out.println("Account Id is Invalid");
+					}
+
+				default:
+					break;
+				}
 	
 				break;
 
@@ -119,8 +164,21 @@ public class View {
 				if(findBank1!=null) {
 					System.out.println("Enter the Account ID: ");
 					int acc_id = myInput.nextInt();
-					Account findAccount=findAccount(acc_id);
+				    Account acc= controller.findAccount(acc_id);
+				    if(acc!=null) {
+				     controller.removeAcc(acc_id,findBank1);
+				    	System.out.println("Account delete Successfully");
+				    }else {
+				    	System.out.println("Account not deleted");
+				    }
+//					if(controller.remove(id1,findBank1)) {
+//						System.out.println("Bank id deleted successfully");
+//					}else {
+//						System.out.println("Error");
+//					}
 
+				}else {
+					System.out.println("Bank does not exist");
 				}
 				
 	
@@ -135,4 +193,6 @@ public class View {
 		}
 	
 	}
+
+
 

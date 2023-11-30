@@ -15,6 +15,7 @@ public class Controller {
 	static EntityManager entityManager=entityManagerFactory.createEntityManager();
 	static EntityTransaction entityTransaction=entityManager.getTransaction();
 	static Bank bank = new Bank();
+	static Account acc=new Account();
 	public boolean addBankandAccounts(Bank bank,List<Account>accounts)
 	{
 		if (bank!=null && accounts!=null) {
@@ -29,31 +30,56 @@ public class Controller {
 		} 
 		return false;
 	}
-	public Bank findBank(Object primaryKey)
+	public Bank findBank(int id)
 	{
-		return entityManager.find(Bank.class, primaryKey);
+		return entityManager.find(Bank.class, id);
 	}
 	public Account findAccount(int id) {
-		List<Account> accounts = bank.getAccounts();
+//		List<Account> a = bank.getAccounts();
 		return entityManager.find(Account.class, id);
 
 	}
-	public boolean updatename(int id,String name) {
-       if(findBank(id)!=null) {
-    	   bank.setName(name);
+	public boolean updateAccName(int id,String name) {
+		Account findacc=findAccount(id);
+       if(findacc!=null) {
+    	   findacc.setName(name);
     	   entityTransaction.begin();
-    	   entityManager.merge(bank);
+    	   entityManager.merge(acc);
     	   entityTransaction.commit();
     	   return true;
        }
        return false;
 	}
 	
-	public boolean remove(int id) {
+	public boolean updateAccContactNo(int id,long no) {
+		Account findacc=findAccount(id);
+       if(findacc!=null) {
+    	   findacc.setContact(no);
+    	   entityTransaction.begin();
+    	   entityManager.merge(acc);
+    	   entityTransaction.commit();
+    	   return true;
+       }
+       return false;
+	}
+	
+	public boolean updateAccBalance(int id,double balance) {
+		Account findacc=findAccount(id);
+       if(findacc!=null) {
+    	   findacc.setBalance(balance);
+    	   entityTransaction.begin();
+    	   entityManager.merge(acc);
+    	   entityTransaction.commit();
+    	   return true;
+       }
+       return false;
+	}
+	
+	public boolean remove(int id,Bank bk) {
 		if(findBank(id)!=null) {
-			List<Account> accounts = bank.getAccounts();
+			List<Account> accounts = bk.getAccounts();
 			entityTransaction.begin();
-			entityManager.remove(bank);
+			entityManager.remove(bk);
 			for (Account account : accounts) {
 				entityManager.remove(account);
 			}
@@ -61,6 +87,23 @@ public class Controller {
 			return true;
 		}
 		return false;
+	}
+	public boolean removeAcc(int id,Bank bk) {
+		if(findAccount(id)!=null) {
+			List<Account> accounts = bk.getAccounts();
+			System.out.println(accounts);
+			entityTransaction.begin();
+			for (Account acc : accounts) {
+				if(acc.getId()==id) {
+					entityManager.remove(acc);
+					entityTransaction.commit();
+					return true;
+				}
+			}
+			
+		}
+		return false;
+
 	}
 
 }
