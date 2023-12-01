@@ -379,3 +379,5 @@ private String name;
 private String description;
 private String trainer;
 }
+
+Note: From Student we can fetch subject but from subject we can't fetch student that's why we call it as unidirectional
