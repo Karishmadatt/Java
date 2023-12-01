@@ -353,3 +353,29 @@ It is more flexible for updates .Number of table will be 3.
 
 2.Many to one
 The "many" side doesn't have direct access to "one" side so it is less flexible. Number of tables will be 2.
+
+Many to Many Unidirectional
+
+considering example of college .There are many students in college and college provide many subjects
+1) One students can have many subjects.
+2) One subjects can be obtained by many students.
+
+@Entity
+public class Student{
+@Id
+private int id;
+private String name;
+private String email;
+private long mobile_number;
+@ManytoMany
+private List<Subject>subjects;
+}
+
+@Entity
+public class Subject{
+@Id
+private int id;
+private String name;
+private String description;
+private String trainer;
+}
