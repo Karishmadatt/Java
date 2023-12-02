@@ -30,7 +30,7 @@ public class Controller {
 		if(student!=null) {
 			entityTransaction.begin();
 			entityManager.persist(student);
-			entityTransaction.begin();
+			entityTransaction.commit();
 			return true;
 		}
 

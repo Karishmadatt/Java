@@ -18,7 +18,6 @@ public static void main(String[] args) {
 		switch(ch) {
 		case 1:
 			Student student = new Student();
-			Subject subject = new Subject();
 			List<Subject> subjects_list = new ArrayList<Subject>();
 			System.out.println("Please give the student detail");
 			System.out.println("Enter the student id: ");
@@ -36,6 +35,7 @@ public static void main(String[] args) {
 			System.out.println("How many subject you want to add?");
 			int no_of_subject = sc.nextInt();
 			while(no_of_subject>0) {
+				Subject subject = new Subject();
 				System.out.println("Enter the subject id: ");
 				int sub_id = sc.nextInt();
 			    Subject Subject_Exist=controller.find(sub_id,subject);
@@ -59,10 +59,6 @@ public static void main(String[] args) {
 					subject.setName(sub_name);
 					subject.setTrainer(sub_trainer);
 					subject.setDescription(sub_des);
-					if (subjects_list == null) {
-			            subjects_list = new ArrayList<>();
-			        }
-
 					subjects_list.add(subject);
 					student.setSubjects(subjects_list);
 					if(controller.insert_new_subject(student,subject)) {
