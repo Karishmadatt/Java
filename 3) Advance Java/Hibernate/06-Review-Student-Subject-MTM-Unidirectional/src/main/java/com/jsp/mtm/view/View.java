@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.persistence.Query;
+
 import com.jsp.mtm.controller.Controller;
 import com.jsp.mtm.model.Student;
 import com.jsp.mtm.model.Subject;
@@ -18,6 +20,7 @@ public static void main(String[] args) {
 		switch(ch) {
 		case 1:
 			Student student = new Student();
+			Subject subject = new Subject();
 			List<Subject> subjects_list = new ArrayList<Subject>();
 			System.out.println("Please give the student detail");
 			System.out.println("Enter the student id: ");
@@ -35,10 +38,10 @@ public static void main(String[] args) {
 			System.out.println("How many subject you want to add?");
 			int no_of_subject = sc.nextInt();
 			while(no_of_subject>0) {
-				Subject subject = new Subject();
+				Subject subject1 = new Subject();
 				System.out.println("Enter the subject id: ");
 				int sub_id = sc.nextInt();
-			    Subject Subject_Exist=controller.find(sub_id,subject);
+			    Subject Subject_Exist=controller.find_subject(sub_id,subject1);
 			    if(Subject_Exist!=null) {
 			    	subjects_list.add(Subject_Exist);
 			    	student.setSubjects(subjects_list);
@@ -73,6 +76,55 @@ public static void main(String[] args) {
 			}
 			break;
 		case 2:
+			Student student1 = new Student();
+			Subject subject1 = new Subject();
+			System.out.println("What you want to read?");
+			System.out.println("1.Student Details\n2.Subject Details\n");
+			int ch1 = sc.nextInt();
+			if(ch1==1) {
+				System.out.println("1.Want particuler student detail\n2.Want all the student details\n");
+				int ch2 = sc.nextInt();
+				if(ch2==1) {
+					System.out.println("Which student data you want to read, mention student id: ");
+					int student_id = sc.nextInt();
+					Student find_student = controller.find_student(student_id, student1);
+					if(find_student!=null) {
+						System.out.println("student id: "+find_student.getId());
+						System.out.println("student name: "+find_student.getName());
+						System.out.println("student email: "+find_student.getEmail());
+						System.out.println("student contact no: "+find_student.getMobile_number());
+					}
+
+				}else if(ch2==2) {
+					if(controller.All_the_student_detail()) {
+						
+					}else {
+						System.out.println("please try later");
+					}
+				}
+			}else if(ch1==2) {
+				System.out.println("1.Want particular subject detail\n2.All the subject detail\n");
+				int ch2=sc.nextInt();
+				if(ch2==1) {
+					System.out.println("Enter the subject id: ");
+					int sub_id = sc.nextInt();
+					Subject find_subject = controller.find_subject(sub_id,subject1);
+					if(find_subject!=null) {
+						System.out.println("subject id: "+find_subject.getId());
+						System.out.println("subject name: "+find_subject.getName());
+						System.out.println("subject description: "+find_subject.getDescription());
+						System.out.println("subject trainer: "+find_subject.getTrainer());
+					}else {
+						System.out.println("subject doen't exist");
+					}
+				}else if(ch2==2) {
+					if(controller.All_the_subject_detail()) {
+						System.out.println("Above data is all the subject detail");
+					}else {
+						System.err.println("please try later");
+					}
+				}
+			}
 			break;
 		case 3:
 			break;
