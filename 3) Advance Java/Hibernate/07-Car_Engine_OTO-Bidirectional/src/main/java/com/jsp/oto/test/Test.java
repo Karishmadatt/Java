@@ -16,30 +16,32 @@ public class Test {
 	EntityTransaction entityTransaction = entityManager.getTransaction();
 	
 	Car car = new Car();
-	Engine engine = new Engine();
 	Controller controller = new Controller();
-//	car.setId(1);
-//	car.setCar_name("BMW");
+//	car.setId(2);
+//	car.setCar_name("Thar");
 //	car.setChasis("343sd");
 //	car.setCost(1500000);
 //	
-//	Engine engine = new Engine();
-//	engine.setId(1);
+	Engine engine = new Engine();
+//	engine.setId(2);
 //	engine.setNo_of_cylinder(2);
 //	engine.setCc(343);
 //	
 //	car.setEng(engine);
+//	engine.setCar(car);
 	Car find_car = controller.find_car(car, 1);
-	Engine find_engine = controller.find_engine(engine,1);
+//	Engine find_engine = controller.find_engine(engine,1);
 	if(find_car!=null) {
-		   Engine eng = find_car.getEng();
-		   Car car2 = find_engine.getCar();
+//		   Engine eng = find_car.getEng();
+		   Car attachedEngine = entityManager.getReference(Car.class, 1);
+		   Engine eng2 = attachedEngine.getEng();
+//		   Car car2 = find_engine.getCar();
 			entityTransaction.begin();
-			entityManager.remove(eng);
-			entityManager.remove(find_car);
+			entityManager.remove(eng2);
+			entityManager.remove(attachedEngine);
 			entityTransaction.commit();
-			
-		
+//			
+//		
 	}
 	
 	
