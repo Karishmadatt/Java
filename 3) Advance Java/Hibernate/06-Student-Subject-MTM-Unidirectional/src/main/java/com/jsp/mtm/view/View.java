@@ -346,11 +346,11 @@ public static void main(String[] args) {
 				int subid=sc.nextInt();
 				Subject find_subject = controller.find_subject(subid, subject2);
 				
-				if(find_subject!=null) {
-					controller.deleteSubject(subject2, subid, subjects_list1);
-				}else {
-					System.out.println("Subject does not exist");
-				}
+//				if(find_subject!=null) {
+//					controller.deleteSubject(subject2, subid, subjects_list1);
+//				}else {
+//					System.out.println("Subject does not exist");
+//				}
 				
 				break;
 			}

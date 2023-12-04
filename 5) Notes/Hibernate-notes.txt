@@ -385,3 +385,21 @@ Note: From Student we can fetch subject but from subject we can't fetch student 
 scenario's while inserting :
 
 
+Aspect                  Unidirectional                 Birectional
+
+1.Destination          one way association            two way association , both the entity has references to each other
+                       only one entity has
+                       has reference of other             
+
+
+2.Navigation          Not available or may           available directly through relationship      
+  from target         require additional
+  to source           queries
+
+3.Complexity          Simpler , fewer mapping        slightly more complex, requires additional consideration for mapping
+                      and consideration
+
+4.Relationship        Managed through foreign keys   Managed through references on both sides.
+  Maintainence        on source side.
+
+eg Car Engine in one to one relationship{ car-source and engine-target}

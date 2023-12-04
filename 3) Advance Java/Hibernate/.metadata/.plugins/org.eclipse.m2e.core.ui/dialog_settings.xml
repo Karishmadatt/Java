@@ -52,6 +52,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="07-Car_Engine_OTO-Bidirectional"/>
 			<item value="05-Review-product-MTO-Unidirectional"/>
 			<item value="04-Bank-Accounts-OTM-Unidirectional"/>
 		</list>

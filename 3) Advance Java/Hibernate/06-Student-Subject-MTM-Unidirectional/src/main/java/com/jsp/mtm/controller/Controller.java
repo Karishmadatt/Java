@@ -175,7 +175,6 @@ public class Controller {
 		   System.out.println("Subject does not exist");
 		   return true;
 	   }
-	   return false;
    }
 
 }
