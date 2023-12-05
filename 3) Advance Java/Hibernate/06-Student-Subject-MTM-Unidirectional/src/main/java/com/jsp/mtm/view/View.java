@@ -324,11 +324,12 @@ public static void main(String[] args) {
 			
 			System.out.println("1.Want to delete student\n2.Want to delete subject");
 			int choice1 = sc.nextInt();
-			System.out.println("Enter the student id: ");
-			int sid1 = sc.nextInt();
+			
 			Student student2 = new Student();
 			switch(choice1) {
 			case 1:
+				System.out.println("Enter the student id: ");
+				int sid1 = sc.nextInt();
 				 Student find_student2 = controller.find_student(sid1,student2);
 			       if(find_student2!=null) {
 			    	   if(controller.deleteStudent(find_student2)) {
@@ -345,12 +346,13 @@ public static void main(String[] args) {
 				System.out.println("Enter the subject id: ");
 				int subid=sc.nextInt();
 				Subject find_subject = controller.find_subject(subid, subject2);
+				List<Subject> subjects_list2 = controller.getSubjects();
 				
-//				if(find_subject!=null) {
-//					controller.deleteSubject(subject2, subid, subjects_list1);
-//				}else {
-//					System.out.println("Subject does not exist");
-//				}
+				if(find_subject!=null) {
+					controller.deleteSubject(find_subject, subid, subjects_list2);
+				}else {
+					System.out.println("Subject does not exist");
+				}
 				
 				break;
 			}

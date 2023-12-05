@@ -48,6 +48,12 @@ public class Controller {
 	public Student find_student(int student_id , Student student) {
 		return entityManager.find(Student.class, student_id);
 	}
+	public List<Subject> getSubjects() {
+		String hql = "SELECT s FROM Subject s";
+		TypedQuery<Subject> createNamedQuery = entityManager.createQuery(hql, Subject.class);
+		List<Subject> resultList = createNamedQuery.getResultList();
+		return resultList;
+	}
 	
 	public boolean All_the_subject_detail() {
 		String hql = "SELECT s FROM Subject s";
@@ -157,24 +163,41 @@ public class Controller {
    
    public boolean deleteSubject(Subject subject,int subid,List<Subject>subject_list) {
 	   if(subject!=null) {
-		   entityTransaction.begin();
-		   Subject temp=null;
-			for (Subject subject2 : subject_list) {
-					if(subject2.getId()==subid) {
-						temp=subject2;
-						delete(temp,subject_list);
-						break;
-					
-		     }
-		   
+//		   Subject temp=null;
+//			for (Subject subject2 : subject_list) {
+//					if(subject2.getId()==subid) {
+//						temp=subject2;
+//						delete(temp,subject_list);
+//						break;
+		   List<Student> students = getStudents();
+		   for (Student student : students) {
+			List<Subject> subjects = student.getSubjects();
+			subjects.remove(subject);
+			student.setSubjects(subjects);
+			entityTransaction.begin();
+			entityManager.merge(student);
+			entityTransaction.commit();
 		}
+		   entityTransaction.begin();
 		   entityManager.remove(subject);
 		   entityTransaction.commit();
-		   return true;
-	   }else {
-		   System.out.println("Subject does not exist");
-		   return true;
-	   }
+				return true;	
+		     }
+		   return false;
+		
+//		   entityManager.remove(subject);
+//		   entityTransaction.commit();
+//		   return true;
+//	   }else {
+//		   System.out.println("Subject does not exist");
+//		   return true;
+//	   }
    }
+   public List<Student> getStudents() {
+	   String hql = "SELECT s FROM Student s";
+		TypedQuery<Student> createNamedQuery = entityManager.createQuery(hql, Student.class);
+		List<Student> resultList = createNamedQuery.getResultList();
+		return resultList;
 
+}
 }
