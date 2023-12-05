@@ -403,3 +403,30 @@ Aspect                  Unidirectional                 Birectional
   Maintainence        on source side.
 
 eg Car Engine in one to one relationship{ car-source and engine-target}
+
+one to one Bi-directional mapping eliminating duplicate column
+
+@Entity
+public class Student{
+@Id
+private int id;
+private String name;
+private String email;
+private long mobile_number;
+@ManytoMany
+private List<Subject>subjects;
+// getter setter
+}
+
+@Entity
+public class Subject{
+@Id
+private int id;
+private String name;
+private String description;
+private String trainer;
+//getter setter
+}
+
+as we have seen previously primary key becoming foreign key of other table and it was happing for both the table.
+we need not have foreign key column in both tables we need to retain it in any one of table
