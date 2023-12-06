@@ -35,4 +35,7 @@
     <fullyQualifiedTypeName name="com.jsp.oto.model.Car"/>
     <fullyQualifiedTypeName name="com.jsp.oto.model.Engine"/>
     <fullyQualifiedTypeName name="com.jsp.oto.controller.Controller"/>
+    <fullyQualifiedTypeName name="com.jsp.oto.bidirectional.eliminate.duplicate.fk.Car"/>
+    <fullyQualifiedTypeName name="com.jsp.oto.bidirectional.eliminate.duplicate.fk.Engine"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 </qualifiedTypeNameHistroy>

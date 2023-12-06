@@ -6440,3 +6440,9 @@ Contains: Missing com.jsp:01-first-hibernate-project:jar:javadoc:0.0.1-SNAPSHOT
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-12-05 15:56:33.826
 !MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-12-05 23:08:14.417
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-12-05 23:08:14.430
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!

@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Work\Java\3) Advance Java\Hibernate\08-Car_Engine-OTO-Bidirectional-Eliminate-Duplicate-FK"/>
 			<item value="D:\Work\Java\3) Advance Java\Hibernate\03-Car-Engine-OTO-Unidirectional\src\main\java\com\jsp\oto\view\view.java"/>
 			<item value="C:\Users\Gaurav\eclipse-workspace\Hibernate\03-Car-Engine-OTO-Unidirectional\src\main\java"/>
 			<item value="C:\Users\Gaurav\eclipse-workspace\Hibernate\02-Basic-CRUD-Operation\src\main\java\com\jsp\CRUD\Driver\delete.java"/>
@@ -52,6 +53,9 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="09-Car-Engine-OTO-Bidirectional-Eliminate-FK-reverse"/>
+			<item value="09-Car_Engine-OTO-Bidirectional-Elimination-FK-Reverse"/>
+			<item value="08-Car_Engine-OTO-Bidirectional-Eliminate-Duplicate-FK"/>
 			<item value="07-Car_Engine_OTO-Bidirectional"/>
 			<item value="05-Review-product-MTO-Unidirectional"/>
 			<item value="04-Bank-Accounts-OTM-Unidirectional"/>

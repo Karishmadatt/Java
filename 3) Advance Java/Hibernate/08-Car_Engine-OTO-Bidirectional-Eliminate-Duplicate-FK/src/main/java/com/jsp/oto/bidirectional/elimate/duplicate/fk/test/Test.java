@@ -54,7 +54,7 @@ public class Test {
 //			System.out.println("engine cc: "+eng.getCc());
 //			System.out.println("engine no of cylinder: "+eng.getNo_of_cylinder());
 	       entityTransaction.begin();
-	       entityManager.remove(find);
+	       entityManager.remove(find111);
 	       entityTransaction.commit();
 			
 //			
