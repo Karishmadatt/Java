@@ -419,3 +419,33 @@ private Engine engine --: it is responsible to create foreign column in car tabl
 @JoinColumn----->is used to remove fk column form one table.we have to specify mapped by in other entity if we don't want ot reperesent fk column .
 
 mapped by is an attribute in which we have to specity the variable name of join column.
+
+One to Many and Many to One Bidirectional relationship:
+
+One to Many and Many to One Bidirectional relationship means that the association can be navigated in bothe directions
+eg: 1> comments associated with post 
+    2> Customer can have multiple product
+
+@Entity{
+public class Bank{
+@Id
+private int id;
+private String name;
+private String location;
+@OneToMany;
+private List<Account>accounts;
+//non parameterised constructor
+//getter setter
+}
+
+@Entity{
+public class Account{
+@Id
+private int id;
+private String account_holder_name;
+private double balance;
+@ManyToOne
+private Bank bank;
+//non paremeterised constructor
+//getter setter
+}
