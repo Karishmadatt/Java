@@ -449,3 +449,6 @@ private Bank bank;
 //non paremeterised constructor
 //getter setter
 }
+
+Many To Many Bidirectional eliminating forth table
+

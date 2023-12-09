@@ -13,26 +13,26 @@ public class DeleteMiddleElementOfAStackLevel1 {
 //			Output : Stack[] = [1, 2, 4, 5, 6]
 	
 	public static void solve(Stack<Integer> stk,int n,int i) {
-		if(stk.isEmpty() || i==n) {
+		if(stk.empty() || i==n/2) {
+			stk.pop();
 			return;
 		}
 	    int x=stk.pop();
-		solve(stk,n,i++);
-		if(i!=n/2) {
-			stk.push(x);
-		}
+		solve(stk,n,i+1);
+		stk.push(x);
+			
 	}
 	
 	public static void main(String[] args) {
 		Stack<Integer> stk = new Stack<>();
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int temp;
+		int temp;int n1=n;
 		while(n>0) {
 			temp=sc.nextInt();
 			stk.push(temp);n--;
 		}
-		solve(stk,n,0);
+		solve(stk,n1,0);
 		while(!stk.isEmpty()) {
 			System.out.println(stk.peek()+" ");stk.pop();
 		}

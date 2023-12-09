@@ -2,7 +2,7 @@
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
     <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/05-Review-product-MTO-Unidirectional/src/main/java/com/jsp/mto/test/Insert.java"/>
+        <listEntry value="/12-Student-Subject-MTM-Bidirectional/src/main/java/com/jsp/mtm/test/Insert.java"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="1"/>
@@ -12,8 +12,8 @@
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.jsp.mto.test.Insert"/>
-    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="05-Review-product-MTO-Unidirectional"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="05-Review-product-MTO-Unidirectional"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.jsp.mtm.test.Insert"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="12-Student-Subject-MTM-Bidirectional"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="12-Student-Subject-MTM-Bidirectional"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 </launchConfiguration>
