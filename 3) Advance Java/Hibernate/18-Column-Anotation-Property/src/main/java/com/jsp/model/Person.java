@@ -22,7 +22,10 @@ private long mobile;
 @Column(updatable = false)
 private boolean gender;
 @CreationTimestamp
+@Column(insertable = false)
 private LocalDateTime dob;
+@Column(nullable = false,unique = true)
+private String email;
 
 public Person() {
 	super();
@@ -57,6 +60,11 @@ public LocalDateTime getDob() {
 public void setDob(LocalDateTime dob) {
 	this.dob = dob;
 }
-
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
 
 }

@@ -452,3 +452,28 @@ private Bank bank;
 
 Many To Many Bidirectional eliminating forth table
 
+@Column(nullable=false):
+Default value of nullable is true, that means we can add null values . When we write nullable = false we cannot add null value to that field .
+
+@Column(unique = true):
+Default value of unique is false, that means we can add duplicate values . when we write unique = true we cannot add duplicate value to that field.
+Exception-
+
+@Column(updatable=false)
+Default value of updatable is true , that means we can update values.When we make updatable = false that means we cannot update that field.
+
+Note:
+To provide a column multiple feature we can go on adding multiple features seperated by ',' eg:
+@Column(nullable = false,unique = true)
+private String email;
+
+Hibernate First level cache:
+>Caching in general is a temporary memory , some information will be store in that tempory memory which will we accessed frequently . By Storing the information in temporary memory the performance of application can be increased for the same reason we have caching mechanism in hibernate
+>Ideal use of cache is to reduce the number of database query , hence reducing throughput time of the application
+
+Hibernate comes with two different types of caching
+1. first level cache
+2. Second level cache
+
+Note:
+In hibernate first level cache is enable by default 

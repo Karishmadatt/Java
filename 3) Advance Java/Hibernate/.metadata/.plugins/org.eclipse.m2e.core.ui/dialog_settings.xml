@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Work\Java\3) Advance Java\Hibernate\18-Column-Anotation-Property"/>
 			<item value="D:\Work\Java\3) Advance Java\Hibernate\12-Student-Subject-MTM-Bidirectional\src\main\java\com\jsp\mtm\controller\StudentController.java"/>
 			<item value="D:\Work\Java\3) Advance Java\Hibernate\11-Bank-Account-OTM-MTO-Eliminate-FK"/>
 			<item value="D:\Work\Java\3) Advance Java\Hibernate\06-Student-Subject-MTM-Unidirectional\src\main\java\com\jsp\mtm\controller\Controller.java"/>
@@ -56,6 +57,8 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="19-L1-Cache"/>
+			<item value="18-Column-Anotation-Property"/>
 			<item value="13-Student-Subject-MTM-Eliminating-Forth-Table"/>
 			<item value="12-Student-Subject-MTM-Bidirectional"/>
 			<item value="11-Bank-Account-OTM-MTO-Eliminate-FK"/>
