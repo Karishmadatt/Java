@@ -57,6 +57,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="20-L2-Cache"/>
 			<item value="19-L1-Cache"/>
 			<item value="18-Column-Anotation-Property"/>
 			<item value="13-Student-Subject-MTM-Eliminating-Forth-Table"/>

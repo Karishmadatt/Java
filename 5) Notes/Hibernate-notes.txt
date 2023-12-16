@@ -477,3 +477,125 @@ Hibernate comes with two different types of caching
 
 Note:
 In hibernate first level cache is enable by default 
+
+Hibernate life cycle:
+1. Transient state: A object is existing but there is no connection between that object and table in the database
+2. Persistant state:In this state object and row in the table are connected if you make and changes in that object 
+   it may hamper the date present in databse or table.
+
+Note: Any object which is not in use will be collected by garbage collected 
+
+Console base hibernate project
+
+Tech Stack:
+Backend: java , hibernate(JPA)
+Database: postgresql
+Built tool: Maven
+
+Employee Management System:
+
+Problem Statement:
+
+Design and implement employee management system using hibernate and database. The system should allow efficient management of employee information including details about their repective departments and projects they are associated with 
+
+Entities:
+1. Employee{id,name,position,salary,doj}
+   Relationships:
+   {many to one with department},{many to many with project}.
+
+2. Department{id,name}
+   Relationships:
+   {one to many with employee}
+
+3. Project{id,name,description}
+   Relationships:
+   {many to many with employee}
+
+Key features:
+1. Add employee
+   Allow adding new employee with details 
+   Specify the department and project associated with each employee 
+
+2. View employee information 
+   display employee details including departments and projects 
+
+3. Update employee detail
+   allowing updating employee information salary or position
+
+4. Remove employee 
+   provide and option to remove employee from the system.
+
+5.View department information:
+  display department details along with list of employee
+  
+6. Add department allow adding new departments 
+
+7. Add project
+   allowing adding new project
+
+8. View project information
+   view project details along with list of employees involved.
+
+Learning opportunity : 
+
+implementing hibernate annotation for entity mapping 
+handling association (many to one) , (one to many) ,(many to many) in hibernate.
+performing crud operation using hibernate
+understanding transaction management in hibernate.
+
+
+
+Social Media Management System:
+
+Problem Statement:
+
+Design and implement a Social Media Management System using Hibernate and a relational database. The system should efficiently manage user information, posts, and comments, including relationships between these entities.
+
+Entities:
+
+**User{id, username, email, password}
+Relationships:
+{one to many with Post, one to many with Comment}
+
+**Post{id, content, timestamp}
+Relationships:
+{many to one with User, one to many with Comment}
+
+**Comment{id, content, timestamp}
+Relationships:
+{many to one with User, many to one with Post}
+
+Key Features:
+
+Add User:
+Allow adding new users with details.
+Users can be associated with multiple posts and comments.
+
+View User Information:
+Display user details along with a list of posts and comments associated.
+
+Update User Detail:
+Allow updating user information, such as username, email, or password.
+
+Remove User:
+Provide an option to remove a user from the system, along with cascading removal of associated posts and comments.
+
+View Post Information:
+Display post details along with the user who created it and a list of comments.
+
+Add Post:
+Allow adding new posts with content.
+
+Add Comment:
+Allow adding comments to existing posts, associating them with a specific user.
+
+View Comment Information:
+Display comment details along with the user who posted it and the post it belongs to.
+
+Learning Opportunity:
+
+Implement Hibernate annotations for entity mapping.
+Handle associations such as one-to-many and many-to-one in Hibernate.
+Perform CRUD operations using Hibernate for User, Post, and Comment entities.
+Understand and implement transaction management in Hibernate.
+
