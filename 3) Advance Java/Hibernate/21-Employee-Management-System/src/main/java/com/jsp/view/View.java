@@ -280,7 +280,7 @@ public class View {
 							Employee findEmployee2 = Controller.findEmployee(employee1, e_id2);
 							Department findDepartment2 = Controller.findDepartment(findEmployee2.getDepartment(), d_id2);
 							Project findProject = Controller.findProject(project1,  p_id);
-							if(controller.assignProject(employee1,e_id2,d_id2,p_id,project1)) {
+							if(Controller.assignProject(employee1,e_id2,d_id2,p_id,project1)) {
 								System.out.println("Project "+findProject.getName()+" is assign to employee "+findEmployee2.getName()+" of department "+findDepartment2.getName());
 							}else {
 								System.out.println("Please try later");
@@ -290,11 +290,35 @@ public class View {
 						case 4:
 							System.out.println("Enter the employee id: ");
 					    	int e_id3 = myInput.nextInt();
-                            
-							
+                            System.out.println("Enter the department id: ");
+							int d_id1 = myInput.nextInt();
+							System.out.println("Enter the new department id: ");
+							int new_d_id = myInput.nextInt();
+							if(Controller.changeDepartment(employee1,e_id3,department1,d_id1,new_d_id)) {
+								System.out.println("Department of employee is change");
+								
+							}else {
+								System.out.println("please try later");
+							}
 							
 							break;
 						case 5:
+							System.out.println("Enter the employee id: ");
+					    	int e_id4 = myInput.nextInt();
+                            System.out.println("Enter the department id: ");
+							int d_id3 = myInput.nextInt();
+							System.out.println("Enter the project id: ");
+							int p_id1 = myInput.nextInt();
+							System.out.println("Enter the new project id: ");
+							int new_p_id1 = myInput.nextInt();
+							Employee findEmployee3 = Controller.findEmployee(employee1, e_id4);
+							Project findProject2 = Controller.findProject(project1, p_id1);
+							if(Controller.changeProject(employee1,e_id4,d_id3,project1,p_id1,new_p_id1)) {
+								System.out.println("project of employee "+findEmployee3.getName() + " is change from "+findProject2.getName()+" to "+Controller.findProject(project1, new_p_id1).getName());
+								
+							}else {
+								System.out.println("please try later");
+							}
 							break;
 						default:
 							System.out.println("Invalid choice");

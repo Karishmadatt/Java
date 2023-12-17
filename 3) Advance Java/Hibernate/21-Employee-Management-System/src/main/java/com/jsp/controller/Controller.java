@@ -227,6 +227,79 @@ public class Controller {
 	   
 	   return false;
    }
+   
+   public static boolean changeDepartment(Employee employee,int e_id,Department department,int d_id,int new_department_id) {
+	   Employee findEmployee = findEmployee(employee, e_id);
+	   Department findDepartment = findDepartment(department, d_id);
+	   Department findNewDepartment = findDepartment(department,new_department_id);
+	   if(findEmployee!=null && findDepartment!=null && findNewDepartment!=null) {
+		   List<Employee> employee_list = findDepartment.getEmployee();
+		   Employee temp = null;
+		   for (Employee emp : employee_list) {
+			if(emp.getDepartment().getId()==d_id && emp.getId()==e_id) {
+				temp=emp;
+				break;
+				
+			}
+			
+		}
+		   employee_list.remove(temp);
+		   findDepartment.setEmployee(employee_list);
+		   findEmployee.setDepartment(findDepartment);
+		   entityTransaction.begin();
+		   entityManager.merge(findEmployee);
+		   entityManager.merge(findDepartment);
+		   entityTransaction.commit();
+		   if(assignDepartment(new_department_id, e_id, findNewDepartment, findEmployee)) {
+			   return true;
+		   }else {
+			   return false;
+		   }
+		   
+	   }
+	   return false;
+   }
+   
+   public static boolean changeProject(Employee employee,int e_id,int d_id,Project project,int p_id,int new_p_id) {
+	   
+	    Employee findEmployee = findEmployee(employee, e_id);
+	    Project findProject = findProject(project, p_id);
+	    Project findProject2 = findProject(project,new_p_id);
+	    List<Project> project_list = findEmployee.getProject();
+	    List<Employee> employee_list = findProject.getEmployee();
+	   Department department = findEmployee.getDepartment();
+	   Project temp_pro = null; Employee temp_emp=null;int index=0;
+	   if(findEmployee!=null && project_list!=null && department!=null && findProject!=null && findProject2!=null) {
+		   for (Project pro : project_list) {
+				if(pro.getId()==p_id) {
+					temp_pro=pro;
+					break;
+				}
+			}
+		   
+		   for (Employee emp : employee_list) {
+			if(emp.getId()==e_id ) {
+				temp_emp=emp;
+			}
+		}
+		   
+		   project_list.remove(temp_pro);
+		   findEmployee.setProject(project_list);
+		   employee_list.remove(temp_emp);
+		   findProject.setEmployee(employee_list);
+		   entityTransaction.begin();
+		   entityManager.merge(findEmployee);
+		   entityManager.merge(findProject);
+		   entityTransaction.commit();
+		   if(assignProject(findEmployee, e_id, d_id, new_p_id, findProject2)) {
+			   return true;
+		   }else {
+			   return false;
+		   }
+	   }
+	  
+	   return false;
+   }
 
 }
 
