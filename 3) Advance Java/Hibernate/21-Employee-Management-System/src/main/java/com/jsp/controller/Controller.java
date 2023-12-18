@@ -85,12 +85,13 @@ public class Controller {
    public static boolean deleteEmployee(Employee employee,int key) {
 	   if(employee!=null) {
 		   Employee findEmployee = findEmployee(employee, key);
+//		   Department department = findEmployee.getDepartment();
 		   if(findEmployee!=null) {
 			   entityTransaction.begin();
 			   entityManager.remove(findEmployee);
 			   entityTransaction.commit();
 			   return true;
-		   }else {
+		   }else{
 			   System.out.println("Employee does not exist");
 			   return false;
 		   }

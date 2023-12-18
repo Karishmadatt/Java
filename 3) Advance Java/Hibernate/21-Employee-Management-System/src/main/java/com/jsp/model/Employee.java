@@ -2,6 +2,7 @@ package com.jsp.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,10 +20,10 @@ public class Employee {
 	private String position;
 	private String dateOfJoining;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.REMOVE)
 	Department department;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.REMOVE)
     List<Project> project;
 	
 	public int getId() {
