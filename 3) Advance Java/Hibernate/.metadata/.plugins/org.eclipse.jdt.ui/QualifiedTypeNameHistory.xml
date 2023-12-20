@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.jsp.CRUD.model.Crush"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.EntityManagerFactory"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Persistence"/>
-    <fullyQualifiedTypeName name="com.jsp.CRUD.utility.utility"/>
-    <fullyQualifiedTypeName name="com.jsp.oto.model.car"/>
-    <fullyQualifiedTypeName name="com.jsp.oto.model.engine"/>
-    <fullyQualifiedTypeName name="com.jsp.oto.controller.controller"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="com.jsp.otm.controller.Controller"/>
     <fullyQualifiedTypeName name="com.jsp.otm.model.Bank"/>
@@ -23,7 +14,6 @@
     <fullyQualifiedTypeName name="com.jsp.oto.controller.Controller"/>
     <fullyQualifiedTypeName name="com.jsp.oto.bidirectional.eliminate.duplicate.fk.Car"/>
     <fullyQualifiedTypeName name="com.jsp.oto.bidirectional.eliminate.duplicate.fk.Engine"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.jsp.otm.mto.model.Bank"/>
     <fullyQualifiedTypeName name="javax.persistence.Embeddable"/>
     <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
@@ -45,14 +35,12 @@
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.jsp.model.Department"/>
     <fullyQualifiedTypeName name="com.jsp.model.Project"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="com.jsp.model.Employee"/>
-    <fullyQualifiedTypeName name="com.jsp.controller.Controller"/>
     <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
@@ -60,4 +48,16 @@
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="com.jsp.model.AdharCard"/>
+    <fullyQualifiedTypeName name="karishma.test"/>
+    <fullyQualifiedTypeName name="java.lang.ThreadDeath"/>
+    <fullyQualifiedTypeName name="karishma.testclass"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.jsp.controller.Controller"/>
+    <fullyQualifiedTypeName name="com.jsp.model.Triangle"/>
+    <fullyQualifiedTypeName name="com.jsp.model.Area"/>
+    <fullyQualifiedTypeName name="com.jsp.model.Circle"/>
+    <fullyQualifiedTypeName name="com.jsp.model.Rectangle"/>
+    <fullyQualifiedTypeName name="com.jsp.model.Shape"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
 </qualifiedTypeNameHistroy>

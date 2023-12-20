@@ -492,6 +492,7 @@ Backend: java , hibernate(JPA)
 Database: postgresql
 Built tool: Maven
 
+
 Employee Management System:
 
 Problem Statement:
@@ -599,3 +600,18 @@ Handle associations such as one-to-many and many-to-one in Hibernate.
 Perform CRUD operations using Hibernate for User, Post, and Comment entities.
 Understand and implement transaction management in Hibernate.
 
+
+
+Servlet :
+
+servlet is a server side technology use to handle request then process that request, generate response and giving back to the client.These response can be static or dynamic. 
+
+What is servlet?
+>API 
+>Servlet is an api generally use to develop web application.
+>All the classes and interfaces related to servlet api are present in 'javax.servlet' package
+>Interface
+
+we can also servlet is an interface, it has few method which are present in it any class who implements servlet interface need to give implement to all those method.
+Servlet is a program which is going to run on server meaning we are going to write servlet program while building web application, that web application is going to run on server, in server we are going to write servlet classes and these classes are going to be triggered whenever there is request related to that particular servlet, then that particular servlet class will produce response and send it back to client
+Servlet is a class which acquire property of server creating response upon request.
