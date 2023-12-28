@@ -1,0 +1,85 @@
+Servlet :
+
+servlet is a server side technology use to handle request then process that request, generate response and giving back to the client.These response can be static or dynamic. 
+
+What is servlet?
+>API 
+>Servlet is an api generally use to develop web application.
+>All the classes and interfaces related to servlet api are present in 'javax.servlet' package
+>Interface
+
+we can also servlet is an interface, it has few method which are present in it any class who implements servlet interface need to give implement to all those method.
+Servlet is a program which is going to run on server meaning we are going to write servlet program while building web application, that web application is going to run on server, in server we are going to write servlet classes and these classes are going to be triggered whenever there is request related to that particular servlet, then that particular servlet class will produce response and send it back to client
+Servlet is a class which acquire property of server creating response upon request.
+
+
+
+today[28-dec-2023]
+
+PrintWriter:
+
+ >PrintWriter is a class in java that is part of java.io package
+ > It procides methods to write formatted text.
+
+* Methods for writing data:
+> printWriter provides a variety of print and println methods form writing different kind of data including intergers,floating pint numbers,characters and string.
+>Eg: print(int), print(String), print(double), etc.
+
+* Read form data in GenericServlet(03-collect-form-data):
+   >The request.getParameter(String name) method is used for retrieval of values of parameter from the client's     
+request.In context of a servlet, this method  is beneficial for extracting data submitted thrugh html forms.
+
+. Argument(Parameter name): 
+  > The method takes parameter name as an argument , representing the name of the parameter 
+  value you want to retrieve.
+. Return type
+  > The method returns a string that represents the value of specified parameter.
+  > Null is returned for absent  parameter. The method returns null if the specified parameter is not present in 
+    the request.
+. Use in HTML form:
+  > Description:
+     . In context  forms the parameter names are typically associated with the name attributes of form elements.
+     . Eg:<input name>="parameter name">
+
+*HttpServlet and its methods:
+
+servet(interface)<---Generic Servlet(abstract class)<----HttpServlet(abstract class)
+
+>HttpServlet is an abstract it is present in javax.servlet package
+
+NOTE:
+*HttpServlet is an abstract class even though there is no abstract class in it (why?)
+>The HttpServlet in java is design to be base class for creating servlets that handle http requests.Although it does'nt contains any abstract method it is marked as abstract class because it is not mend to be instantiated directly. Instead developers are expected to create subclass by extending to HttpServlet and providing there own implementation for the method they want to be override.
+
+*If we want to create a servlet that handle Http request particularly generally it is not recommended to inherit 
+ generic servlet, instead we need to inherit Http servlet class 
+
+*If we already have Generic Servlet then why to opt for HttpServlet?
+>Generic Servlet and HttpServlet serves different purpose in java api and choice between them depends on the requirement of your web application 
+>Generic Servlet:
+ Generic Servlet is a more general purpose class that can handle request and response in a protocol in generic   manner . It is not specific to http and can be used for other protocol as well. 
+>HttpServlet:
+ HttpServlet is sub class of Generic Servlet that provides specific support for handling http request and reponse.
+ It includes method such as doGet , doPost , doPut , doDelete for handling different http request and response.
+ HttpServlet is design to simplify development of webapplication that specifically deals with http . It abstracts 
+ away many detail of Http protocol , making it easier to work with high level concepts such as request parameter,  session management and url pattern.
+
+Methods:
+
+1.doGet()
+
+protected void	doGet(HttpServletRequest req, HttpServletResponse resp)
+Called by the server (via the service method) to allow a servlet to handle a GET request.
+
+This method is useful when dealing with Http get request. Data will be attach to url , resulting in low security.
+
+2.doPost()
+
+doPost(HttpServletRequest req, HttpServletResponse resp)
+Called by the server (via the service method) to allow a servlet to handle a POST request.
+
+
+Data will be pasted into html body , common ensuring better security 
+ Note:
+ 
+We may replace service method with doGet,doPost , doTrace , doPut , so on ... but init and destroy method will only be executed once

@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.jsp</groupId>
-  <artifactId>02-servlet-run</artifactId>
+  <artifactId>02-run-servlet</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>02-servlet-run Maven Webapp</name>
+  <name>02-run-servlet Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -31,11 +31,11 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>4.0.1</version>
 			<scope>provided</scope>
-		</dependency>
+	</dependency>
   </dependencies>
 
   <build>
-    <finalName>02-servlet-run</finalName>
+    <finalName>02-run-servlet</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

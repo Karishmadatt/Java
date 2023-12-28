@@ -5,11 +5,11 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-		<servlet-name><Servlet</servlet-name>
-  		<servlet-class></servlet-class>
+	  <servlet-name>FirstServletRun</servlet-name>
+	  <servlet-class>com.jsp.servletrun.FirstServletRun</servlet-class>
   </servlet>
   <servlet-mapping>
-	  <servlet-name>Servlet</servlet-name>
-	  <url-pattern></url-pattern>
+	  <servlet-name>FirstServletRun</servlet-name>
+	  <url-pattern>/msg</url-pattern>
   </servlet-mapping>
 </web-app>
