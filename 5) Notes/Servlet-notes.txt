@@ -83,3 +83,16 @@ Data will be pasted into html body , common ensuring better security
  Note:
  
 We may replace service method with doGet,doPost , doTrace , doPut , so on ... but init and destroy method will only be executed once
+
+* In HTTPServlet doGet,doPost are design to handles HttpGet and HttpPost requests. The main difference between these method lies the type of http requests that they are intended to process and the way the hands.
+
+doGet()
+>doGet method is use to handle Http Get request .It is called when a client sends request using http get method .
+Typically get request are used for operations that do not have side effects,such as retrieving information or displaying a resource 
+>In Get request data is appended to the url as query parameters. These parameters are visible in url itself.
+
+doPost()
+>doPost is used to handle Http Post request .It is called when clients sends request using http post method . 
+Post request are often used for operations that have side effects such as submitting form or updating data on server. 
+>The data is send in the body of the request making it more suitable for large amount of data .
+>In post request data is not visible in url but is instead send in the request body 
