@@ -22,7 +22,7 @@ public class InputOutput {
  public static void main(String[] args) {
 	takeinput();
 	printoutput();
-	PQinput()
+//	PQinput()
 }
 
 static void printoutput() {
